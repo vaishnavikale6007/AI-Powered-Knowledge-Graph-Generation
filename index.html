@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KnowledgeGraph AI | Q3 Practical</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">✦</div><div><b>KnowledgeGraph AI</b><small>GenAI Lab Workspace</small></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <a class="nav active" href="#overview">▦ &nbsp; Overview</a>
+      <a class="nav" href="#extractor">✧ &nbsp; Text Extractor</a>
+      <a class="nav" href="#triples">☷ &nbsp; Knowledge Triples</a>
+      <a class="nav" href="#graph">◉ &nbsp; Graph Visualization</a>
+      <div class="sidebar-bottom"><div class="avatar">S</div><div><b>Student Workspace</b><small>Q3 Practical Demo</small></div></div>
+    </aside>
+
+    <main class="main" id="overview">
+      <header class="topbar"><div>Workspace <span>›</span> <b>Knowledge Graph Generator</b></div><div class="status"><i></i> Local demo</div></header>
+      <section class="heading">
+        <div><div class="eyebrow">GENERATIVE AI · Q3 PRACTICAL</div><h1>AI-Powered Knowledge Graph</h1><p>Extract entities and relationships from text, then explore them as a graph.</p></div>
+        <button class="btn light" id="resetBtn">Reset demo</button>
+      </section>
+
+      <section class="stats">
+        <div class="stat"><span>Entities found</span><strong id="entityCount">6</strong><small>People, systems, concepts</small></div>
+        <div class="stat"><span>Relationships</span><strong id="relationCount">5</strong><small>Subject–predicate–object</small></div>
+        <div class="stat"><span>Verified triples</span><strong id="verifiedCount">4/5</strong><small class="green">Matched with source text</small></div>
+        <div class="stat"><span>Unsupported</span><strong id="unsupportedCount">1</strong><small class="orange">Needs manual review</small></div>
+      </section>
+
+      <section class="panel" id="extractor">
+        <div class="panel-title"><div><h2>Source text</h2><p>Enter a paragraph about a college, project, or computer science topic.</p></div><span class="pill">Input</span></div>
+        <textarea id="sourceText" rows="5">DKTE Institute offers MCA courses. Students learn Java and database management. The Food Donation System connects donors with NGOs. The system uses a MySQL database to store donation records. Students develop projects using web technologies.</textarea>
+        <div class="actions"><span id="charCount">0 characters</span><button class="btn primary" id="extractBtn">✦ Generate knowledge graph</button></div>
+        <div id="notice" class="notice">Demo mode: click Generate to create sample entities and relationships from the paragraph.</div>
+      </section>
+
+      <section class="content-grid">
+        <section class="panel" id="triples">
+          <div class="panel-title"><div><h2>Knowledge triples</h2><p>Structured as Subject · Predicate · Object</p></div><span class="pill purple">Triples</span></div>
+          <div class="table-wrap"><table><thead><tr><th>SUBJECT</th><th>PREDICATE</th><th>OBJECT</th><th>STATUS</th></tr></thead><tbody id="tripleRows"></tbody></table></div>
+          <div class="legend"><span><i class="dot verified"></i> Supported by text</span><span><i class="dot review"></i> Review needed</span></div>
+        </section>
+        <section class="panel graph-panel" id="graph">
+          <div class="panel-title"><div><h2>Graph visualization</h2><p>Entities connected by relationships</p></div><span class="pill">Live preview</span></div>
+          <div class="graph" id="graphArea" aria-label="Knowledge graph visualization"></div>
+          <div class="graph-foot"><span><i class="dot node-dot"></i> Entity</span><span><i class="line-dot"></i> Relationship</span></div>
+        </section>
+      </section>
+
+      <section class="panel verification">
+        <div class="panel-title"><div><h2>Relationship verification</h2><p>Compare generated triples against the original text.</p></div><span class="pill green-pill">Quality check</span></div>
+        <div class="verify-grid">
+          <div><div class="big-check">✓</div><b>Verify each relationship</b><p>Confirm that the source paragraph directly supports the triple.</p></div>
+          <div><div class="big-check warning">!</div><b>Flag unsupported claims</b><p>Do not treat a plausible connection as a fact unless the text supports it.</p></div>
+          <div><div class="big-check purple-check">↗</div><b>Export report</b><p>Download triples and their verification status as a CSV file.</p></div>
+        </div>
+        <div class="report-actions"><span id="summaryText">4 supported relationships · 1 needs review</span><button class="btn light" id="exportBtn">⇩ Export CSV report</button></div>
+      </section>
+      <footer>KnowledgeGraph AI <span>·</span> Educational prototype for Generative AI Lab</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
